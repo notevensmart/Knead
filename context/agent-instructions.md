@@ -22,12 +22,13 @@ Design reference:
 - Build the actual usable website concept as the first screen, not a generic landing page or placeholder.
 - Keep the experience calm, professional, easy to scan, and visually aligned with Knead's logo assets.
 
-Prototype boundaries:
-- Prototype P1 work belongs only in p1/.
-- Prototype P2 work belongs only in p2/.
-- Prototype P3 work belongs only in p3/.
+Final site status:
+- The client selected Prototype 1.
+- The production-ready site is served from the repository root: index.html and styles.css.
+- The original selected prototype is preserved in p1/.
+- Only the root site and preserved p1/ source are active.
 
-Do not change shared requirements or assets while building a prototype unless explicitly asked.
+Do not change shared requirements or assets unless explicitly asked.
 
 Content rules:
 - Use the contact email kneadspace@gmail.com.

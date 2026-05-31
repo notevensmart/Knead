@@ -102,7 +102,9 @@ Team Content:
 Use context/our-team.md as the clean source for professional bios.
 
 Special Requirements:
-- Build future concepts in p1, p2, and p3.
+- The client selected Prototype 1 as the final website direction.
+- Serve the selected site from the repository root for local hosting and deployment.
+- Preserve p1/ as the original selected prototype source.
 - Contact can be part of the main page instead of a separate full page.
 - The site should support three main navigation tabs or sections: About, Services, Contact.
 - Costs must appear as a services item, but detailed pricing is not available yet.

@@ -1,23 +1,32 @@
-# Knead Website Concepts
+# Knead Website
 
-This repository follows the AI-assisted client website workflow through shared context, shared assets, and three future prototype folders.
+This repository now contains the selected Knead website direction based on Prototype 1.
 
-Current workflow status:
-- Step 1: Client information gathered
-- Step 2: Project structure created
-- Step 3: Extracted requirements created
+## Local Hosting
 
-Key files:
+From the repository root, run a simple static server:
+
+```powershell
+python -m http.server 4173
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4173/
+```
+
+The production-ready root files are:
+- index.html
+- styles.css
+- assets/
+
+## Source Context
+
+Client requirements and supporting materials are kept in:
 - context/extracted-requirements.md
 - context/design-reference.md
-- context/agent-instructions.md
 - context/our-team.md
-- assets/logo/
 
-Design reference:
-Future prototypes should use the installed Codex UI/UX skills as the main design reference. Client content and constraints remain documented in context/extracted-requirements.md.
-
-Future concept folders:
+The original selected prototype is also preserved in:
 - p1/
-- p2/
-- p3/

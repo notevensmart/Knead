@@ -5,424 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Review three website concept directions for Knead mental health services."
+      content="Knead offers accessible mental health services, therapy, training, and a clear way to connect."
     >
-    <title>Knead Website Concepts</title>
-    <style>
-      :root {
-        --ink: #191714;
-        --muted: #6d665c;
-        --gold: #e4ac00;
-        --yellow: #f5e987;
-        --mint: #dcebd7;
-        --paper: #fffdf7;
-        --line: rgba(25, 23, 20, 0.14);
-        --shadow: 0 24px 70px rgba(25, 23, 20, 0.12);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        background:
-          radial-gradient(circle at 16% 20%, rgba(220, 235, 215, 0.95) 0 17rem, transparent 17.2rem),
-          radial-gradient(circle at 84% 0%, rgba(245, 233, 135, 0.8) 0 20rem, transparent 20.2rem),
-          linear-gradient(135deg, #fffdf7 0%, #fff8dd 48%, #eff7ed 100%);
-        color: var(--ink);
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      .page {
-        width: min(1160px, calc(100% - 40px));
-        margin: 0 auto;
-        padding: 32px 0 44px;
-      }
-
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        padding: 10px 0 34px;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        width: clamp(132px, 18vw, 196px);
-      }
-
-      .brand img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .header-note {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 1.5;
-        text-align: right;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
-        gap: clamp(28px, 5vw, 72px);
-        align-items: end;
-        padding: clamp(32px, 6vw, 78px) 0 clamp(28px, 5vw, 60px);
-      }
-
-      .eyebrow {
-        margin: 0 0 18px;
-        color: var(--gold);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        max-width: 850px;
-        margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(3.2rem, 8vw, 7.25rem);
-        font-weight: 500;
-        line-height: 0.9;
-      }
-
-      .hero-copy {
-        max-width: 650px;
-        margin: 26px 0 0;
-        color: #3c3831;
-        font-size: clamp(1.08rem, 2vw, 1.35rem);
-        line-height: 1.6;
-      }
-
-      .contact-card {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.64);
-        box-shadow: var(--shadow);
-        padding: 24px;
-        backdrop-filter: blur(18px);
-      }
-
-      .contact-card p {
-        margin: 0 0 18px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .contact-links {
-        display: grid;
-        gap: 10px;
-      }
-
-      .contact-links a {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        min-height: 48px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--paper);
-        padding: 12px 14px;
-        font-weight: 800;
-        text-decoration: none;
-      }
-
-      .contact-links a::after {
-        content: "->";
-        color: var(--gold);
-      }
-
-      .concepts {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-        margin-top: 18px;
-      }
-
-      .concept-card {
-        display: grid;
-        min-height: 360px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.72);
-        box-shadow: 0 18px 44px rgba(25, 23, 20, 0.08);
-        overflow: hidden;
-        text-decoration: none;
-      }
-
-      .concept-card:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 4px;
-      }
-
-      .concept-preview {
-        min-height: 158px;
-        border-bottom: 1px solid var(--line);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .concept-preview::before,
-      .concept-preview::after {
-        content: "";
-        position: absolute;
-        border-radius: 999px;
-      }
-
-      .concept-preview--clean {
-        background: #f8f5eb;
-      }
-
-      .concept-preview--clean::before {
-        width: 56%;
-        height: 64%;
-        top: 20%;
-        left: 14%;
-        background: var(--mint);
-      }
-
-      .concept-preview--clean::after {
-        width: 38%;
-        height: 44%;
-        right: 10%;
-        bottom: 14%;
-        background: var(--gold);
-      }
-
-      .concept-preview--warm {
-        background: #231f18;
-      }
-
-      .concept-preview--warm::before {
-        width: 46%;
-        height: 60%;
-        left: 12%;
-        top: 18%;
-        background: #f3d576;
-      }
-
-      .concept-preview--warm::after {
-        width: 42%;
-        height: 52%;
-        right: 13%;
-        bottom: 16%;
-        background: var(--mint);
-      }
-
-      .concept-preview--signal {
-        background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px) 0 0 / 18px 18px,
-          #0f0f0d;
-      }
-
-      .concept-preview--signal::before {
-        width: 64%;
-        height: 42%;
-        top: 25%;
-        left: 18%;
-        background: var(--gold);
-        transform: rotate(-10deg);
-      }
-
-      .concept-preview--signal::after {
-        width: 42%;
-        height: 38%;
-        right: 12%;
-        bottom: 14%;
-        background: var(--yellow);
-      }
-
-      .concept-body {
-        display: grid;
-        align-content: space-between;
-        gap: 28px;
-        padding: 22px;
-      }
-
-      .concept-body h2 {
-        margin: 0;
-        font-size: clamp(1.35rem, 2vw, 1.7rem);
-        line-height: 1.12;
-      }
-
-      .concept-body p {
-        margin: 12px 0 0;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .concept-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        border-top: 1px solid var(--line);
-        padding-top: 16px;
-        color: var(--gold);
-        font-weight: 900;
-      }
-
-      .footer {
-        margin-top: 44px;
-        color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-
-      @media (max-width: 860px) {
-        .page {
-          width: min(100% - 28px, 720px);
-          padding-top: 20px;
-        }
-
-        .header,
-        .hero {
-          grid-template-columns: 1fr;
-        }
-
-        .header {
-          align-items: flex-start;
-        }
-
-        .header-note {
-          text-align: left;
-        }
-
-        .concepts {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 540px) {
-        .header {
-          display: grid;
-        }
-
-        h1 {
-          font-size: clamp(2.8rem, 18vw, 4.2rem);
-        }
-
-        .hero {
-          padding-top: 22px;
-        }
-
-        .contact-card,
-        .concept-body {
-          padding: 18px;
-        }
-      }
-    </style>
+    <title>Knead | Mental Health Services</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="page">
-      <header class="header">
-        <a class="brand" href="/" aria-label="Knead concept review home">
-          <img src="assets/logo/knead-logo-original.png" alt="Knead">
-        </a>
-        <p class="header-note">
-          Website concept review<br>
-          Three directions, one shared content source.
-        </p>
-      </header>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-      <main>
-        <section class="hero" aria-labelledby="page-title">
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Knead home">
+        <img src="assets/logo/knead-logo-on-white.png" alt="Knead">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="#contact">Connect</a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Mental health services</p>
+          <h1 id="hero-title">Care that makes room for your whole context.</h1>
+          <p class="hero-text">
+            Knead offers accessible support from therapists and mental health
+            professionals, with attention to the individual, community, and wider
+            world around each person.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#contact">Connect</a>
+            <a class="button button-secondary" href="#services">View services</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Knead overview">
+          <div class="panel-mark">
+            <img src="assets/logo/knead-logo-original.png" alt="" aria-hidden="true">
+          </div>
+          <p>
+            Professional, peaceful, and accessible mental health care for people
+            moving through change.
+          </p>
+          <dl class="quick-facts">
+            <div>
+              <dt>Focus</dt>
+              <dd>Therapy and training</dd>
+            </div>
+            <div>
+              <dt>Contact</dt>
+              <dd>Email and Instagram</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="section-kicker">About</div>
+        <div class="section-grid">
           <div>
-            <p class="eyebrow">Knead mental health services</p>
-            <h1 id="page-title">Choose a website direction.</h1>
-            <p class="hero-copy">
-              Review three distinct prototypes for Knead. Each concept uses the
-              same client requirements, services, team bios, contact details,
-              and brand assets.
+            <h2 id="about-title">A softer starting point for mental health support.</h2>
+          </div>
+          <div class="section-copy">
+            <p>
+              Knead helps clients ease into understanding mental health as a
+              complex network of emotions shaped by personal experience,
+              relationships, community, and the wider world.
+            </p>
+            <p>
+              The practice recognises that mental health is contextual, flexible,
+              and deserving of care that feels human, respectful, and easy to
+              move toward.
             </p>
           </div>
+        </div>
 
-          <aside class="contact-card" aria-label="Knead contact details">
+        <div class="professionals" aria-labelledby="professionals-title">
+          <div class="subsection-heading">
+            <p class="eyebrow">Our professionals</p>
+            <h3 id="professionals-title">Meet the team</h3>
+          </div>
+
+          <div class="team-grid">
+            <article class="team-card">
+              <img
+                src="assets/images/siri-indukuri.jpg"
+                alt="Portrait of Siri Indukuri"
+                width="322"
+                height="484"
+              >
+              <div class="team-card-content">
+                <p class="pronouns">She/Her</p>
+                <h4>Siri Indukuri</h4>
+                <p>
+                  Siri has worked in mental health for the past 10 years with
+                  people of diverse ages and backgrounds, with particular
+                  experience supporting adolescents, teenagers, and young adults.
+                </p>
+                <p class="languages">English, Hindi and Telugu</p>
+                <details class="qualification-details">
+                  <summary>Qualifications</summary>
+                  <ul>
+                    <li>Bachelor of Arts (Psychology/ Criminology)</li>
+                    <li>Bachelor of Psychology (Honors)</li>
+                    <li>Masters in Counseling and Psychotherapy</li>
+                  </ul>
+                </details>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <img
+                src="assets/images/vaishnavi-gattu.jpg"
+                alt="Portrait of Vaishnavi Gattu"
+                width="1523"
+                height="1311"
+              >
+              <div class="team-card-content">
+                <p class="pronouns">She/Her</p>
+                <h4>Vaishnavi Gattu</h4>
+                <p>
+                  Vaishnavi is a compassionate clinical social worker who
+                  specialises in working with adolescents, teenagers, and young
+                  adults, and is also a trained behavioural therapist.
+                </p>
+                <p class="languages">English, Hindi and Telugu</p>
+                <details class="qualification-details">
+                  <summary>Qualifications</summary>
+                  <ul>
+                    <li>Bachelor of Arts (Social Work, Economics and Public Administration)</li>
+                    <li>Masters in Social Work: Clinical and Community Practice</li>
+                  </ul>
+                </details>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services-section" id="services" aria-labelledby="services-title">
+        <div class="section-kicker">Services</div>
+        <div class="section-grid">
+          <div>
+            <h2 id="services-title">Clear pathways for care, learning, and support.</h2>
+          </div>
+          <div class="section-copy">
             <p>
-              Contact is included inside each concept. There is no phone number
-              yet, so the primary action is to connect by email or Instagram.
+              Service details are intentionally simple here, so clients can scan
+              what is available and connect for the right next step.
             </p>
-            <div class="contact-links">
-              <a href="mailto:kneadspace@gmail.com">Email</a>
-              <a href="https://www.instagram.com/kneadsocial" target="_blank" rel="noreferrer">Instagram</a>
-            </div>
-          </aside>
-        </section>
+          </div>
+        </div>
 
-        <section class="concepts" aria-label="Website prototypes">
-          <a class="concept-card" href="/p1/">
-            <div class="concept-preview concept-preview--clean" aria-hidden="true"></div>
-            <div class="concept-body">
-              <div>
-                <p class="eyebrow">Prototype 1</p>
-                <h2>Calm modern professional</h2>
-                <p>
-                  A clean, spacious direction with refined typography and a
-                  straightforward path through About, Services, and Contact.
-                </p>
-              </div>
-              <span class="concept-link">Open P1 <span aria-hidden="true">-></span></span>
-            </div>
+        <div class="service-list" aria-label="Knead services">
+          <article class="service-item">
+            <span>01</span>
+            <h3>Individual Therapy</h3>
+          </article>
+          <article class="service-item">
+            <span>02</span>
+            <h3>Group Therapy</h3>
+          </article>
+          <article class="service-item">
+            <span>03</span>
+            <h3>Training for mental health professionals</h3>
+          </article>
+          <article class="service-item">
+            <span>04</span>
+            <h3>Training for parents and carers</h3>
+          </article>
+          <article class="service-item">
+            <span>05</span>
+            <h3>Costs</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Connect with Knead.</h2>
+          <p>
+            Send a note to begin the conversation or follow along on Instagram.
+          </p>
+        </div>
+
+        <div class="contact-actions" aria-label="Contact options">
+          <a
+            class="contact-link primary-contact"
+            href="mailto:kneadspace@gmail.com?subject=Connect%20with%20Knead"
+          >
+            <span>Email</span>
+            kneadspace@gmail.com
           </a>
-
-          <a class="concept-card" href="/p2/">
-            <div class="concept-preview concept-preview--warm" aria-hidden="true"></div>
-            <div class="concept-body">
-              <div>
-                <p class="eyebrow">Prototype 2</p>
-                <h2>Warm community focused</h2>
-                <p>
-                  A softer, team-forward concept with approachable visuals,
-                  gentle pacing, and an inviting human tone.
-                </p>
-              </div>
-              <span class="concept-link">Open P2 <span aria-hidden="true">-></span></span>
-            </div>
+          <a
+            class="contact-link"
+            href="https://www.instagram.com/kneadsocial"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Instagram</span>
+            @kneadsocial
           </a>
-
-          <a class="concept-card" href="/p3/">
-            <div class="concept-preview concept-preview--signal" aria-hidden="true"></div>
-            <div class="concept-body">
-              <div>
-                <p class="eyebrow">Prototype 3</p>
-                <h2>Distinctive experience led</h2>
-                <p>
-                  A more artful, high-contrast direction with stronger brand
-                  presence and subtle interactive energy.
-                </p>
-              </div>
-              <span class="concept-link">Open P3 <span aria-hidden="true">-></span></span>
-            </div>
-          </a>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <p>
-          Share the root URL for the review portal, or send direct links to
-          /p1/, /p2/, and /p3/.
-        </p>
-      </footer>
-    </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

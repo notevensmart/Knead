@@ -26,9 +26,9 @@ Design Direction For Knead:
 - Use the logo palette as the base: warm gold, soft yellow, pale mint green, black, and white.
 - Feature the real Knead logo and team portraits where useful.
 
-Prototype Expectations:
-- Each prototype should feel like a complete design direction, not a wireframe.
-- Each prototype should include About, Services, and Contact.
+Final Site Expectations:
+- The client selected Prototype 1 as the final direction.
+- The root site should include About, Services, and Contact.
 - Contact can be part of the main page.
 - Services should be listed without invented detailed descriptions.
 - Include a clear connect call to action.
