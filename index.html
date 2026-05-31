@@ -3,12 +3,426 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Review three website concept directions for Knead mental health services."
+    >
     <title>Knead Website Concepts</title>
+    <style>
+      :root {
+        --ink: #191714;
+        --muted: #6d665c;
+        --gold: #e4ac00;
+        --yellow: #f5e987;
+        --mint: #dcebd7;
+        --paper: #fffdf7;
+        --line: rgba(25, 23, 20, 0.14);
+        --shadow: 0 24px 70px rgba(25, 23, 20, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+          radial-gradient(circle at 16% 20%, rgba(220, 235, 215, 0.95) 0 17rem, transparent 17.2rem),
+          radial-gradient(circle at 84% 0%, rgba(245, 233, 135, 0.8) 0 20rem, transparent 20.2rem),
+          linear-gradient(135deg, #fffdf7 0%, #fff8dd 48%, #eff7ed 100%);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 32px 0 44px;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 10px 0 34px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        width: clamp(132px, 18vw, 196px);
+      }
+
+      .brand img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .header-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        text-align: right;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+        gap: clamp(28px, 5vw, 72px);
+        align-items: end;
+        padding: clamp(32px, 6vw, 78px) 0 clamp(28px, 5vw, 60px);
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3.2rem, 8vw, 7.25rem);
+        font-weight: 500;
+        line-height: 0.9;
+      }
+
+      .hero-copy {
+        max-width: 650px;
+        margin: 26px 0 0;
+        color: #3c3831;
+        font-size: clamp(1.08rem, 2vw, 1.35rem);
+        line-height: 1.6;
+      }
+
+      .contact-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.64);
+        box-shadow: var(--shadow);
+        padding: 24px;
+        backdrop-filter: blur(18px);
+      }
+
+      .contact-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .contact-links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .contact-links a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        min-height: 48px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 12px 14px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .contact-links a::after {
+        content: "->";
+        color: var(--gold);
+      }
+
+      .concepts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .concept-card {
+        display: grid;
+        min-height: 360px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 18px 44px rgba(25, 23, 20, 0.08);
+        overflow: hidden;
+        text-decoration: none;
+      }
+
+      .concept-card:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      .concept-preview {
+        min-height: 158px;
+        border-bottom: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .concept-preview::before,
+      .concept-preview::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+      }
+
+      .concept-preview--clean {
+        background: #f8f5eb;
+      }
+
+      .concept-preview--clean::before {
+        width: 56%;
+        height: 64%;
+        top: 20%;
+        left: 14%;
+        background: var(--mint);
+      }
+
+      .concept-preview--clean::after {
+        width: 38%;
+        height: 44%;
+        right: 10%;
+        bottom: 14%;
+        background: var(--gold);
+      }
+
+      .concept-preview--warm {
+        background: #231f18;
+      }
+
+      .concept-preview--warm::before {
+        width: 46%;
+        height: 60%;
+        left: 12%;
+        top: 18%;
+        background: #f3d576;
+      }
+
+      .concept-preview--warm::after {
+        width: 42%;
+        height: 52%;
+        right: 13%;
+        bottom: 16%;
+        background: var(--mint);
+      }
+
+      .concept-preview--signal {
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px) 0 0 / 18px 18px,
+          #0f0f0d;
+      }
+
+      .concept-preview--signal::before {
+        width: 64%;
+        height: 42%;
+        top: 25%;
+        left: 18%;
+        background: var(--gold);
+        transform: rotate(-10deg);
+      }
+
+      .concept-preview--signal::after {
+        width: 42%;
+        height: 38%;
+        right: 12%;
+        bottom: 14%;
+        background: var(--yellow);
+      }
+
+      .concept-body {
+        display: grid;
+        align-content: space-between;
+        gap: 28px;
+        padding: 22px;
+      }
+
+      .concept-body h2 {
+        margin: 0;
+        font-size: clamp(1.35rem, 2vw, 1.7rem);
+        line-height: 1.12;
+      }
+
+      .concept-body p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .concept-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+        color: var(--gold);
+        font-weight: 900;
+      }
+
+      .footer {
+        margin-top: 44px;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 860px) {
+        .page {
+          width: min(100% - 28px, 720px);
+          padding-top: 20px;
+        }
+
+        .header,
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .header {
+          align-items: flex-start;
+        }
+
+        .header-note {
+          text-align: left;
+        }
+
+        .concepts {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .header {
+          display: grid;
+        }
+
+        h1 {
+          font-size: clamp(2.8rem, 18vw, 4.2rem);
+        }
+
+        .hero {
+          padding-top: 22px;
+        }
+
+        .contact-card,
+        .concept-body {
+          padding: 18px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <main>
-      <h1>Knead Website Concepts</h1>
-      <p>Prototype folders are prepared for P1, P2, and P3. Concepts have not been generated yet.</p>
-    </main>
+    <div class="page">
+      <header class="header">
+        <a class="brand" href="/" aria-label="Knead concept review home">
+          <img src="assets/logo/knead-logo-original.png" alt="Knead">
+        </a>
+        <p class="header-note">
+          Website concept review<br>
+          Three directions, one shared content source.
+        </p>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Knead mental health services</p>
+            <h1 id="page-title">Choose a website direction.</h1>
+            <p class="hero-copy">
+              Review three distinct prototypes for Knead. Each concept uses the
+              same client requirements, services, team bios, contact details,
+              and brand assets.
+            </p>
+          </div>
+
+          <aside class="contact-card" aria-label="Knead contact details">
+            <p>
+              Contact is included inside each concept. There is no phone number
+              yet, so the primary action is to connect by email or Instagram.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:kneadspace@gmail.com">Email</a>
+              <a href="https://www.instagram.com/kneadsocial" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </aside>
+        </section>
+
+        <section class="concepts" aria-label="Website prototypes">
+          <a class="concept-card" href="/p1/">
+            <div class="concept-preview concept-preview--clean" aria-hidden="true"></div>
+            <div class="concept-body">
+              <div>
+                <p class="eyebrow">Prototype 1</p>
+                <h2>Calm modern professional</h2>
+                <p>
+                  A clean, spacious direction with refined typography and a
+                  straightforward path through About, Services, and Contact.
+                </p>
+              </div>
+              <span class="concept-link">Open P1 <span aria-hidden="true">-></span></span>
+            </div>
+          </a>
+
+          <a class="concept-card" href="/p2/">
+            <div class="concept-preview concept-preview--warm" aria-hidden="true"></div>
+            <div class="concept-body">
+              <div>
+                <p class="eyebrow">Prototype 2</p>
+                <h2>Warm community focused</h2>
+                <p>
+                  A softer, team-forward concept with approachable visuals,
+                  gentle pacing, and an inviting human tone.
+                </p>
+              </div>
+              <span class="concept-link">Open P2 <span aria-hidden="true">-></span></span>
+            </div>
+          </a>
+
+          <a class="concept-card" href="/p3/">
+            <div class="concept-preview concept-preview--signal" aria-hidden="true"></div>
+            <div class="concept-body">
+              <div>
+                <p class="eyebrow">Prototype 3</p>
+                <h2>Distinctive experience led</h2>
+                <p>
+                  A more artful, high-contrast direction with stronger brand
+                  presence and subtle interactive energy.
+                </p>
+              </div>
+              <span class="concept-link">Open P3 <span aria-hidden="true">-></span></span>
+            </div>
+          </a>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Share the root URL for the review portal, or send direct links to
+          /p1/, /p2/, and /p3/.
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
