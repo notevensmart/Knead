@@ -26,41 +26,116 @@
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-copy">
+      <section class="hero calm-hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-intro">
           <p class="eyebrow">Mental health services</p>
           <h1 id="hero-title">Care that makes room for your whole context.</h1>
-          <p class="hero-text">
-            Knead offers accessible support from therapists and mental health
-            professionals, with attention to the individual, community, and wider
-            world around each person.
+        </div>
+
+        <div class="hero-composition" aria-hidden="true">
+          <figure class="reflection-card reflection-card-one">
+            <img
+              src="assets/posts/i-miss-my-old-problems.png"
+              alt=""
+              width="430"
+              height="545"
+              draggable="false"
+            >
+          </figure>
+          <figure class="reflection-card reflection-card-two">
+            <img
+              src="assets/posts/some-days-surviving-is-enough.png"
+              alt=""
+              width="420"
+              height="545"
+              draggable="false"
+            >
+          </figure>
+          <figure class="reflection-card reflection-card-three">
+            <img
+              src="assets/posts/its-okay-to-take-up-space.png"
+              alt=""
+              width="420"
+              height="545"
+              draggable="false"
+            >
+          </figure>
+
+          <div class="hero-video-wrap">
+            <video
+              class="hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/video/calm-hero-poster.png"
+            >
+              <source src="assets/video/calm-hero.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <figure class="reflection-card reflection-card-four">
+            <img
+              src="assets/posts/healed-people-heal-people.png"
+              alt=""
+              width="480"
+              height="485"
+              draggable="false"
+            >
+          </figure>
+          <figure class="reflection-card reflection-card-five">
+            <img
+              src="assets/posts/progress-not-perfection.png"
+              alt=""
+              width="430"
+              height="485"
+              draggable="false"
+            >
+          </figure>
+        </div>
+
+        <div class="hero-value">
+          <p>
+            Accessible, peaceful mental health support for the individual,
+            the community, and the world around them.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button button-primary" href="#contact">Connect</a>
             <a class="button button-secondary" href="#services">View services</a>
           </div>
         </div>
-
-        <aside class="hero-panel" aria-label="Knead overview">
-          <div class="panel-mark">
-            <img src="assets/logo/knead-logo-original.png" alt="" aria-hidden="true">
-          </div>
-          <p>
-            Professional, peaceful, and accessible mental health care for people
-            moving through change.
-          </p>
-          <dl class="quick-facts">
-            <div>
-              <dt>Focus</dt>
-              <dd>Therapy and training</dd>
-            </div>
-            <div>
-              <dt>Contact</dt>
-              <dd>Email and Instagram</dd>
-            </div>
-          </dl>
-        </aside>
       </section>
+
+      <script>
+        (() => {
+          const heroVideo = document.querySelector(".hero-video");
+          const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+          if (!heroVideo) {
+            return;
+          }
+
+          const syncHeroMotion = () => {
+            if (motionQuery.matches) {
+              heroVideo.pause();
+              heroVideo.removeAttribute("autoplay");
+              return;
+            }
+
+            heroVideo.setAttribute("autoplay", "");
+            heroVideo.play().catch(() => {});
+          };
+
+          syncHeroMotion();
+
+          if (motionQuery.addEventListener) {
+            motionQuery.addEventListener("change", syncHeroMotion);
+          } else {
+            motionQuery.addListener(syncHeroMotion);
+          }
+        })();
+      </script>
 
       <section class="section about-section" id="about" aria-labelledby="about-title">
         <div class="section-kicker">About</div>

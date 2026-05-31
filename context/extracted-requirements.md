@@ -92,6 +92,8 @@ Assets Available:
 - Original logo: assets/logo/knead-logo-original.png
 - Siri Indukuri portrait: assets/images/siri-indukuri.jpg
 - Vaishnavi Gattu portrait: assets/images/vaishnavi-gattu.jpg
+- Social post assets folder: assets/posts/
+- Calm hero video: assets/video/calm-hero.mp4
 - Source specification: context/specification-doc.pdf
 - Team bios PDF: context/our-team.pdf
 - Team bios Markdown: context/our-team.md

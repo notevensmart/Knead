@@ -162,15 +162,19 @@ main {
   width: min(calc(100% - 2rem), var(--max));
   min-height: calc(100svh - 6.8rem);
   margin: 0 auto;
-  padding: clamp(3rem, 8vw, 7rem) 0 clamp(2.8rem, 7vw, 6rem);
+  padding: clamp(2.2rem, 4.8vw, 4.2rem) 0 clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.calm-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
-  gap: clamp(2rem, 7vw, 5rem);
+  gap: clamp(1.25rem, 3vw, 2.2rem);
   align-items: center;
 }
 
-.hero-copy {
-  max-width: 720px;
+.hero-intro {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .eyebrow,
@@ -205,22 +209,31 @@ h4 {
 }
 
 h1 {
-  max-width: 12ch;
+  max-width: 14ch;
   margin-top: 1rem;
-  font-size: clamp(3.3rem, 8vw, 7.8rem);
+  margin-inline: auto;
+  font-size: clamp(2.85rem, 6.4vw, 6rem);
 }
 
-.hero-text {
-  max-width: 640px;
-  margin: 1.5rem 0 0;
+.hero-value {
+  display: grid;
+  justify-items: center;
+  gap: 1.4rem;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-value p {
+  margin: 0;
   color: var(--muted-ink);
   font-size: clamp(1.08rem, 2vw, 1.32rem);
 }
 
 .hero-actions {
-  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.8rem;
 }
 
@@ -260,70 +273,178 @@ h1 {
   border-color: rgba(184, 134, 47, 0.4);
 }
 
-.hero-panel {
+.hero-composition {
   position: relative;
-  padding: clamp(1.4rem, 3vw, 2.1rem);
-  background:
-    linear-gradient(150deg, rgba(255, 253, 248, 0.9), rgba(220, 238, 226, 0.86)),
-    var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
+  width: min(100%, 1060px);
+  min-height: clamp(330px, 41vw, 500px);
+  margin: 0 auto;
+  padding:
+    clamp(3.8rem, 6vw, 5rem)
+    clamp(3rem, 7vw, 6.4rem)
+    clamp(3.1rem, 5.6vw, 4.4rem);
+  isolation: isolate;
 }
 
-.hero-panel::before {
+.hero-composition::before {
   content: "";
   position: absolute;
-  inset: 0.75rem;
-  border: 1px solid rgba(184, 134, 47, 0.22);
-  border-radius: calc(var(--radius) - 2px);
+  inset: 12% 6% 14%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(244, 217, 121, 0.3), transparent 20rem),
+    radial-gradient(circle at 67% 62%, rgba(168, 201, 182, 0.32), transparent 19rem),
+    rgba(255, 253, 248, 0.42);
+  filter: blur(10px);
+  border-radius: 999px;
+}
+
+.hero-video-wrap {
+  z-index: 4;
+  width: min(100%, 620px);
+}
+
+.hero-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background:
+    linear-gradient(145deg, rgba(255, 253, 248, 0.92), rgba(220, 238, 226, 0.76)),
+    var(--paper);
+  border: 1px solid rgba(255, 253, 248, 0.8);
+  border-radius: 24px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.reflection-card {
+  --card-x: 0px;
+  --card-y: 0px;
+  --card-rotate: 0deg;
+  --float-x: 0px;
+  --float-y: -8px;
+  --float-rotate: 0.6deg;
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  aspect-ratio: var(--card-ratio);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 253, 248, 0.76);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
   pointer-events: none;
+  user-select: none;
+  transform: translate3d(var(--card-x), var(--card-y), 0) rotate(var(--card-rotate));
+  transform-origin: center;
+  animation: cardFloat var(--float-duration, 23s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
-.panel-mark {
-  width: min(78%, 330px);
-  margin: 0 auto 1.2rem;
+.reflection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
-.hero-panel p {
-  position: relative;
-  max-width: 26rem;
-  margin: 0;
-  color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.55rem, 3vw, 2.35rem);
-  line-height: 1.1;
+.reflection-card-one {
+  --card-ratio: 430 / 545;
+  --card-x: -50%;
+  --card-y: 0px;
+  --card-rotate: -2.6deg;
+  --float-x: 4px;
+  --float-y: -8px;
+  --float-rotate: 0.5deg;
+  --float-duration: 24s;
+  top: 0;
+  left: 50%;
+  z-index: 3;
+  width: clamp(128px, 15vw, 190px);
 }
 
-.quick-facts {
-  position: relative;
-  margin: 2rem 0 0;
-  display: grid;
-  gap: 0.75rem;
+.reflection-card-two {
+  --card-ratio: 420 / 545;
+  --card-x: 0px;
+  --card-y: -50%;
+  --card-rotate: 2.8deg;
+  --float-x: 8px;
+  --float-y: -4px;
+  --float-rotate: -0.5deg;
+  --float-duration: 26s;
+  --float-delay: -5s;
+  top: 42%;
+  left: 0;
+  width: clamp(118px, 14vw, 170px);
 }
 
-.quick-facts div {
-  display: grid;
-  grid-template-columns: minmax(5.5rem, 0.42fr) 1fr;
-  gap: 1rem;
-  align-items: start;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--line);
+.reflection-card-three {
+  --card-ratio: 420 / 545;
+  --card-x: 0px;
+  --card-y: -50%;
+  --card-rotate: -2deg;
+  --float-x: -6px;
+  --float-y: 5px;
+  --float-rotate: 0.7deg;
+  --float-duration: 28s;
+  --float-delay: -10s;
+  top: 36%;
+  right: 0;
+  width: clamp(112px, 13vw, 160px);
 }
 
-.quick-facts dt,
-.quick-facts dd {
-  margin: 0;
-  font-size: 0.92rem;
+.reflection-card-four {
+  --card-ratio: 480 / 485;
+  --card-x: 0px;
+  --card-y: 0px;
+  --card-rotate: -1.8deg;
+  --float-x: 5px;
+  --float-y: 7px;
+  --float-rotate: 0.45deg;
+  --float-duration: 29s;
+  --float-delay: -14s;
+  left: 10%;
+  bottom: 3%;
+  z-index: 5;
+  width: clamp(130px, 16vw, 205px);
 }
 
-.quick-facts dt {
-  color: var(--muted-ink);
-  font-weight: 800;
+.reflection-card-five {
+  --card-ratio: 430 / 485;
+  --card-x: 0px;
+  --card-y: 0px;
+  --card-rotate: 2.2deg;
+  --float-x: -7px;
+  --float-y: 6px;
+  --float-rotate: -0.55deg;
+  --float-duration: 25s;
+  --float-delay: -8s;
+  right: 8%;
+  bottom: 2%;
+  z-index: 5;
+  width: clamp(124px, 15vw, 190px);
 }
 
-.quick-facts dd {
-  color: var(--ink);
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translate3d(var(--card-x), var(--card-y), 0) rotate(var(--card-rotate));
+  }
+  50% {
+    transform:
+      translate3d(
+        calc(var(--card-x) + var(--float-x)),
+        calc(var(--card-y) + var(--float-y)),
+        0
+      )
+      rotate(calc(var(--card-rotate) + var(--float-rotate)));
+  }
 }
 
 .section {
@@ -610,7 +731,6 @@ h1 {
 
   .hero {
     min-height: auto;
-    grid-template-columns: 1fr;
     align-items: start;
   }
 
@@ -618,8 +738,41 @@ h1 {
     max-width: 11ch;
   }
 
-  .hero-panel {
-    max-width: 640px;
+  .hero-composition {
+    width: min(100%, 760px);
+    min-height: clamp(320px, 54vw, 440px);
+    padding:
+      clamp(3.5rem, 8vw, 4.7rem)
+      clamp(2.2rem, 6vw, 4.2rem)
+      clamp(2.8rem, 6vw, 4rem);
+  }
+
+  .hero-video-wrap {
+    width: min(100%, 520px);
+  }
+
+  .reflection-card {
+    border-radius: 18px;
+  }
+
+  .reflection-card-one {
+    width: clamp(112px, 18vw, 158px);
+  }
+
+  .reflection-card-two {
+    width: clamp(98px, 16vw, 136px);
+  }
+
+  .reflection-card-three {
+    width: clamp(96px, 15vw, 130px);
+  }
+
+  .reflection-card-four {
+    width: clamp(112px, 18vw, 152px);
+  }
+
+  .reflection-card-five {
+    width: clamp(108px, 17vw, 146px);
   }
 
   .section-grid,
@@ -670,24 +823,66 @@ h1 {
   }
 
   .hero {
-    padding-top: 3rem;
+    padding-top: 2.4rem;
   }
 
   h1 {
-    font-size: clamp(3rem, 16vw, 4.7rem);
+    font-size: clamp(2.65rem, 13vw, 4rem);
   }
 
   .hero-actions {
     display: grid;
+    width: min(100%, 360px);
   }
 
   .button {
     width: 100%;
   }
 
-  .quick-facts div {
-    grid-template-columns: 1fr;
-    gap: 0.15rem;
+  .hero-composition {
+    min-height: clamp(320px, 98vw, 420px);
+    padding: 3.7rem 0 4.7rem;
+  }
+
+  .hero-composition::before {
+    inset: 8% -10% 14%;
+  }
+
+  .hero-video-wrap {
+    width: min(100%, 360px);
+  }
+
+  .reflection-card {
+    border-radius: 16px;
+  }
+
+  .reflection-card-one {
+    top: 0;
+    width: min(34vw, 120px);
+  }
+
+  .reflection-card-two {
+    top: 38%;
+    left: 0;
+    width: min(29vw, 104px);
+  }
+
+  .reflection-card-three {
+    top: 34%;
+    right: 0;
+    width: min(28vw, 100px);
+  }
+
+  .reflection-card-four {
+    left: 7%;
+    bottom: 0.8rem;
+    width: min(31vw, 116px);
+  }
+
+  .reflection-card-five {
+    right: 6%;
+    bottom: 0;
+    width: min(30vw, 110px);
   }
 
   .subsection-heading {
@@ -728,5 +923,10 @@ h1 {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .reflection-card {
+    animation: none !important;
+    will-change: auto;
   }
 }

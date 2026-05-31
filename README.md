@@ -21,6 +21,17 @@ The production-ready root files are:
 - styles.css
 - assets/
 
+The calm hero expects these media assets:
+- assets/video/calm-hero.mp4
+- assets/video/calm-hero-poster.png
+- assets/posts/i-miss-my-old-problems.png
+- assets/posts/some-days-surviving-is-enough.png
+- assets/posts/its-okay-to-take-up-space.png
+- assets/posts/healed-people-heal-people.png
+- assets/posts/progress-not-perfection.png
+
+The hero video is intended to be video-only and is played muted in the page.
+
 ## Source Context
 
 Client requirements and supporting materials are kept in:
