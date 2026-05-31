@@ -162,12 +162,12 @@ main {
   width: min(calc(100% - 2rem), var(--max));
   min-height: calc(100svh - 6.8rem);
   margin: 0 auto;
-  padding: clamp(2.2rem, 4.8vw, 4.2rem) 0 clamp(2.4rem, 5vw, 4.2rem);
+  padding: clamp(1.8rem, 3.6vw, 3rem) 0 clamp(2rem, 4vw, 3.4rem);
 }
 
 .calm-hero {
   display: grid;
-  gap: clamp(1.25rem, 3vw, 2.2rem);
+  gap: clamp(0.8rem, 2vw, 1.4rem);
   align-items: center;
 }
 
@@ -209,25 +209,12 @@ h4 {
 }
 
 h1 {
-  max-width: 14ch;
-  margin-top: 1rem;
+  max-width: none;
+  margin-top: 0;
   margin-inline: auto;
-  font-size: clamp(2.85rem, 6.4vw, 6rem);
-}
-
-.hero-value {
-  display: grid;
-  justify-items: center;
-  gap: 1.4rem;
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero-value p {
-  margin: 0;
-  color: var(--muted-ink);
-  font-size: clamp(1.08rem, 2vw, 1.32rem);
+  font-size: clamp(1.45rem, 3vw, 2.4rem);
+  line-height: 1.05;
+  white-space: nowrap;
 }
 
 .hero-actions {
@@ -274,16 +261,20 @@ h1 {
 }
 
 .hero-composition {
+  --orbit-right: clamp(180px, 35vw, 390px);
+  --orbit-left: clamp(-390px, -35vw, -180px);
+  --orbit-top: clamp(-220px, -18vw, -125px);
+  --orbit-bottom: clamp(125px, 18vw, 220px);
   position: relative;
   display: grid;
   place-items: center;
   width: min(100%, 1060px);
-  min-height: clamp(330px, 41vw, 500px);
+  min-height: clamp(390px, 42vw, 540px);
   margin: 0 auto;
   padding:
-    clamp(3.8rem, 6vw, 5rem)
+    clamp(4.2rem, 6vw, 5.2rem)
     clamp(3rem, 7vw, 6.4rem)
-    clamp(3.1rem, 5.6vw, 4.4rem);
+    clamp(4rem, 6vw, 5.4rem);
   isolation: isolate;
 }
 
@@ -321,13 +312,14 @@ h1 {
 }
 
 .reflection-card {
-  --card-x: 0px;
-  --card-y: 0px;
+  --static-x: 0px;
+  --static-y: var(--orbit-top);
   --card-rotate: 0deg;
-  --float-x: 0px;
-  --float-y: -8px;
-  --float-rotate: 0.6deg;
+  --orbit-duration: 86s;
+  --orbit-delay: 0s;
   position: absolute;
+  top: 50%;
+  left: 50%;
   z-index: 2;
   margin: 0;
   aspect-ratio: var(--card-ratio);
@@ -339,10 +331,13 @@ h1 {
     0 2px 8px rgba(0, 0, 0, 0.04);
   pointer-events: none;
   user-select: none;
-  transform: translate3d(var(--card-x), var(--card-y), 0) rotate(var(--card-rotate));
+  transform:
+    translate(-50%, -50%)
+    translate3d(var(--static-x), var(--static-y), 0)
+    rotate(var(--card-rotate));
   transform-origin: center;
-  animation: cardFloat var(--float-duration, 23s) ease-in-out infinite;
-  animation-delay: var(--float-delay, 0s);
+  animation: cardOrbit var(--orbit-duration) linear infinite;
+  animation-delay: var(--orbit-delay);
   backface-visibility: hidden;
   will-change: transform;
 }
@@ -355,95 +350,83 @@ h1 {
 }
 
 .reflection-card-one {
-  --card-ratio: 430 / 545;
-  --card-x: -50%;
-  --card-y: 0px;
+  --card-ratio: 375 / 522;
+  --static-x: 0px;
+  --static-y: var(--orbit-top);
   --card-rotate: -2.6deg;
-  --float-x: 4px;
-  --float-y: -8px;
-  --float-rotate: 0.5deg;
-  --float-duration: 24s;
-  top: 0;
-  left: 50%;
+  --orbit-delay: 0s;
   z-index: 3;
-  width: clamp(128px, 15vw, 190px);
+  width: clamp(106px, 11.5vw, 158px);
 }
 
 .reflection-card-two {
-  --card-ratio: 420 / 545;
-  --card-x: 0px;
-  --card-y: -50%;
+  --card-ratio: 360 / 510;
+  --static-x: var(--orbit-right);
+  --static-y: -1rem;
   --card-rotate: 2.8deg;
-  --float-x: 8px;
-  --float-y: -4px;
-  --float-rotate: -0.5deg;
-  --float-duration: 26s;
-  --float-delay: -5s;
-  top: 42%;
-  left: 0;
-  width: clamp(118px, 14vw, 170px);
+  --orbit-delay: -17.2s;
+  width: clamp(100px, 11vw, 150px);
 }
 
 .reflection-card-three {
-  --card-ratio: 420 / 545;
-  --card-x: 0px;
-  --card-y: -50%;
+  --card-ratio: 377 / 511;
+  --static-x: 0px;
+  --static-y: var(--orbit-bottom);
   --card-rotate: -2deg;
-  --float-x: -6px;
-  --float-y: 5px;
-  --float-rotate: 0.7deg;
-  --float-duration: 28s;
-  --float-delay: -10s;
-  top: 36%;
-  right: 0;
-  width: clamp(112px, 13vw, 160px);
+  --orbit-delay: -34.4s;
+  width: clamp(102px, 11.2vw, 152px);
 }
 
 .reflection-card-four {
-  --card-ratio: 480 / 485;
-  --card-x: 0px;
-  --card-y: 0px;
+  --card-ratio: 400 / 431;
+  --static-x: var(--orbit-left);
+  --static-y: 0.4rem;
   --card-rotate: -1.8deg;
-  --float-x: 5px;
-  --float-y: 7px;
-  --float-rotate: 0.45deg;
-  --float-duration: 29s;
-  --float-delay: -14s;
-  left: 10%;
-  bottom: 3%;
+  --orbit-delay: -51.6s;
   z-index: 5;
-  width: clamp(130px, 16vw, 205px);
+  width: clamp(110px, 12.6vw, 170px);
 }
 
 .reflection-card-five {
-  --card-ratio: 430 / 485;
-  --card-x: 0px;
-  --card-y: 0px;
+  --card-ratio: 365 / 440;
+  --static-x: var(--orbit-left);
+  --static-y: var(--orbit-top);
   --card-rotate: 2.2deg;
-  --float-x: -7px;
-  --float-y: 6px;
-  --float-rotate: -0.55deg;
-  --float-duration: 25s;
-  --float-delay: -8s;
-  right: 8%;
-  bottom: 2%;
+  --orbit-delay: -68.8s;
   z-index: 5;
-  width: clamp(124px, 15vw, 190px);
+  width: clamp(108px, 12vw, 164px);
 }
 
-@keyframes cardFloat {
-  0%,
-  100% {
-    transform: translate3d(var(--card-x), var(--card-y), 0) rotate(var(--card-rotate));
+@keyframes cardOrbit {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      translate3d(0, var(--orbit-top), 0)
+      rotate(-2deg);
+  }
+  25% {
+    transform:
+      translate(-50%, -50%)
+      translate3d(var(--orbit-right), 0, 0)
+      rotate(2deg);
   }
   50% {
     transform:
-      translate3d(
-        calc(var(--card-x) + var(--float-x)),
-        calc(var(--card-y) + var(--float-y)),
-        0
-      )
-      rotate(calc(var(--card-rotate) + var(--float-rotate)));
+      translate(-50%, -50%)
+      translate3d(0, var(--orbit-bottom), 0)
+      rotate(1deg);
+  }
+  75% {
+    transform:
+      translate(-50%, -50%)
+      translate3d(var(--orbit-left), 0, 0)
+      rotate(-2.5deg);
+  }
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translate3d(0, var(--orbit-top), 0)
+      rotate(-2deg);
   }
 }
 
@@ -735,16 +718,20 @@ h1 {
   }
 
   h1 {
-    max-width: 11ch;
+    max-width: none;
   }
 
   .hero-composition {
+    --orbit-right: clamp(205px, 33vw, 300px);
+    --orbit-left: clamp(-300px, -33vw, -205px);
+    --orbit-top: clamp(-170px, -20vw, -135px);
+    --orbit-bottom: clamp(135px, 20vw, 170px);
     width: min(100%, 760px);
-    min-height: clamp(320px, 54vw, 440px);
+    min-height: clamp(360px, 56vw, 460px);
     padding:
-      clamp(3.5rem, 8vw, 4.7rem)
+      clamp(3.8rem, 8vw, 4.8rem)
       clamp(2.2rem, 6vw, 4.2rem)
-      clamp(2.8rem, 6vw, 4rem);
+      clamp(3.4rem, 7vw, 4.4rem);
   }
 
   .hero-video-wrap {
@@ -756,23 +743,23 @@ h1 {
   }
 
   .reflection-card-one {
-    width: clamp(112px, 18vw, 158px);
+    width: clamp(94px, 15vw, 124px);
   }
 
   .reflection-card-two {
-    width: clamp(98px, 16vw, 136px);
+    width: clamp(90px, 14vw, 116px);
   }
 
   .reflection-card-three {
-    width: clamp(96px, 15vw, 130px);
+    width: clamp(90px, 14vw, 118px);
   }
 
   .reflection-card-four {
-    width: clamp(112px, 18vw, 152px);
+    width: clamp(98px, 15vw, 130px);
   }
 
   .reflection-card-five {
-    width: clamp(108px, 17vw, 146px);
+    width: clamp(96px, 14vw, 126px);
   }
 
   .section-grid,
@@ -827,7 +814,7 @@ h1 {
   }
 
   h1 {
-    font-size: clamp(2.65rem, 13vw, 4rem);
+    font-size: clamp(1.3rem, 5.8vw, 1.9rem);
   }
 
   .hero-actions {
@@ -840,8 +827,12 @@ h1 {
   }
 
   .hero-composition {
-    min-height: clamp(320px, 98vw, 420px);
-    padding: 3.7rem 0 4.7rem;
+    --orbit-right: clamp(118px, 39vw, 148px);
+    --orbit-left: clamp(-148px, -39vw, -118px);
+    --orbit-top: clamp(-132px, -34vw, -96px);
+    --orbit-bottom: clamp(96px, 34vw, 132px);
+    min-height: clamp(310px, 94vw, 390px);
+    padding: 3.1rem 0 3.9rem;
   }
 
   .hero-composition::before {
@@ -857,32 +848,23 @@ h1 {
   }
 
   .reflection-card-one {
-    top: 0;
-    width: min(34vw, 120px);
+    width: min(26vw, 92px);
   }
 
   .reflection-card-two {
-    top: 38%;
-    left: 0;
-    width: min(29vw, 104px);
+    width: min(24vw, 84px);
   }
 
   .reflection-card-three {
-    top: 34%;
-    right: 0;
-    width: min(28vw, 100px);
+    width: min(24vw, 86px);
   }
 
   .reflection-card-four {
-    left: 7%;
-    bottom: 0.8rem;
-    width: min(31vw, 116px);
+    width: min(26vw, 96px);
   }
 
   .reflection-card-five {
-    right: 6%;
-    bottom: 0;
-    width: min(30vw, 110px);
+    width: min(25vw, 92px);
   }
 
   .subsection-heading {

@@ -28,35 +28,34 @@
     <main id="main">
       <section class="hero calm-hero" id="top" aria-labelledby="hero-title">
         <div class="hero-intro">
-          <p class="eyebrow">Mental health services</p>
-          <h1 id="hero-title">Care that makes room for your whole context.</h1>
+          <h1 id="hero-title">Care that makes room.</h1>
         </div>
 
         <div class="hero-composition" aria-hidden="true">
           <figure class="reflection-card reflection-card-one">
             <img
-              src="assets/posts/i-miss-my-old-problems.png"
+              src="assets/posts/cropped/i-miss-my-old-problems-tight.png"
               alt=""
-              width="430"
-              height="545"
+              width="375"
+              height="522"
               draggable="false"
             >
           </figure>
           <figure class="reflection-card reflection-card-two">
             <img
-              src="assets/posts/some-days-surviving-is-enough.png"
+              src="assets/posts/cropped/some-days-surviving-is-enough-tight.png"
               alt=""
-              width="420"
-              height="545"
+              width="360"
+              height="510"
               draggable="false"
             >
           </figure>
           <figure class="reflection-card reflection-card-three">
             <img
-              src="assets/posts/its-okay-to-take-up-space.png"
+              src="assets/posts/cropped/its-okay-to-take-up-space-tight.png"
               alt=""
-              width="420"
-              height="545"
+              width="377"
+              height="511"
               draggable="false"
             >
           </figure>
@@ -65,7 +64,6 @@
             <video
               class="hero-video"
               autoplay
-              muted
               loop
               playsinline
               preload="metadata"
@@ -77,33 +75,22 @@
 
           <figure class="reflection-card reflection-card-four">
             <img
-              src="assets/posts/healed-people-heal-people.png"
+              src="assets/posts/cropped/healed-people-heal-people-tight.png"
               alt=""
-              width="480"
-              height="485"
+              width="400"
+              height="431"
               draggable="false"
             >
           </figure>
           <figure class="reflection-card reflection-card-five">
             <img
-              src="assets/posts/progress-not-perfection.png"
+              src="assets/posts/cropped/progress-not-perfection-tight.png"
               alt=""
-              width="430"
-              height="485"
+              width="365"
+              height="440"
               draggable="false"
             >
           </figure>
-        </div>
-
-        <div class="hero-value">
-          <p>
-            Accessible, peaceful mental health support for the individual,
-            the community, and the world around them.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button button-primary" href="#contact">Connect</a>
-            <a class="button button-secondary" href="#services">View services</a>
-          </div>
         </div>
       </section>
 
@@ -117,6 +104,9 @@
           }
 
           const syncHeroMotion = () => {
+            heroVideo.muted = false;
+            heroVideo.volume = 1;
+
             if (motionQuery.matches) {
               heroVideo.pause();
               heroVideo.removeAttribute("autoplay");
@@ -128,6 +118,8 @@
           };
 
           syncHeroMotion();
+          window.addEventListener("pointerdown", syncHeroMotion, { once: true });
+          window.addEventListener("keydown", syncHeroMotion, { once: true });
 
           if (motionQuery.addEventListener) {
             motionQuery.addEventListener("change", syncHeroMotion);
