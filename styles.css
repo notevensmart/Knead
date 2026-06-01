@@ -81,7 +81,7 @@ a {
 }
 
 .brand {
-  width: 190px;
+  width: 228px;
   min-width: 96px;
   display: inline-flex;
   align-items: center;
@@ -790,7 +790,7 @@ h1 {
   }
 
   .brand {
-    width: 150px;
+    width: 180px;
   }
 
   .nav-links {
