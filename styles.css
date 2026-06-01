@@ -81,7 +81,7 @@ a {
 }
 
 .brand {
-  width: 158px;
+  width: 190px;
   min-width: 96px;
   display: inline-flex;
   align-items: center;
@@ -95,13 +95,13 @@ a {
 }
 
 .nav-links {
-  width: min(100%, 620px);
+  width: min(100%, 720px);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   gap: 0;
-  padding-top: 0.7rem;
-  border-top: 1px solid var(--line);
+  padding-top: 0.82rem;
+  border-top: 2px solid rgba(23, 21, 16, 0.22);
 }
 
 .nav-links a,
@@ -790,11 +790,11 @@ h1 {
   }
 
   .brand {
-    width: 123px;
+    width: 150px;
   }
 
   .nav-links {
-    padding-top: 0.55rem;
+    padding-top: 0.68rem;
   }
 
   .nav-links a {
