@@ -75,11 +75,11 @@ a {
   justify-items: center;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 253, 248, 0.88);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 36px rgba(48, 40, 24, 0.08);
-  backdrop-filter: blur(18px);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .brand {
