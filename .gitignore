@@ -44,3 +44,4 @@ temp/
 
 # Codex/local workspace metadata
 .codex/
+.codex-qa/
