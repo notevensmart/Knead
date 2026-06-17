@@ -67,6 +67,7 @@
               class="hero-video"
               autoplay
               loop
+              muted
               playsinline
               preload="metadata"
               poster="assets/video/calm-hero-poster.png"
@@ -106,8 +107,8 @@
           }
 
           const syncHeroMotion = () => {
-            heroVideo.muted = false;
-            heroVideo.volume = 1;
+            heroVideo.muted = true;
+            heroVideo.volume = 0;
 
             if (motionQuery.matches) {
               heroVideo.pause();

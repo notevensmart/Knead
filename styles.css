@@ -11,6 +11,7 @@
   --shadow: 0 22px 60px rgba(48, 40, 24, 0.12);
   --radius: 8px;
   --max: 1160px;
+  --page-gutter: 1rem;
 }
 
 * {
@@ -64,15 +65,15 @@ a {
 
 .site-header {
   position: static;
-  width: min(calc(100% - 2rem), var(--max));
-  min-height: 116px;
-  margin: 1rem auto 0;
-  padding: 0.8rem clamp(0.85rem, 2vw, 1.5rem) 0.7rem;
+  width: min(calc(100% - (var(--page-gutter) * 2)), var(--max));
+  min-height: 104px;
+  margin: 0.8rem auto 0;
+  padding: 0.65rem 1rem 0.62rem;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.58rem;
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -81,7 +82,7 @@ a {
 }
 
 .brand {
-  width: 228px;
+  width: 216px;
   min-width: 96px;
   display: inline-flex;
   flex-direction: column;
@@ -113,12 +114,12 @@ a {
 }
 
 .nav-links {
-  width: min(100%, 720px);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 500px);
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0;
-  padding-top: 0.82rem;
+  gap: clamp(1.25rem, 5vw, 3.35rem);
+  padding-top: 0.62rem;
   border-top: 2px solid rgba(23, 21, 16, 0.22);
 }
 
@@ -136,15 +137,20 @@ a {
   color: var(--muted-ink);
   font-size: 0.92rem;
   font-weight: 650;
-  padding: 0.22rem 0.5rem;
+  padding: 0.18rem 0.12rem;
   text-align: center;
   text-decoration: none;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible,
 .nav-links a[aria-current="page"] {
   color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-color: var(--gold);
 }
 
 .button-primary:hover,
@@ -165,15 +171,15 @@ main {
 }
 
 .hero {
-  width: min(calc(100% - 2rem), var(--max));
-  min-height: calc(100svh - 6.8rem);
+  width: min(calc(100% - (var(--page-gutter) * 2)), var(--max));
+  min-height: calc(100svh - 7.1rem);
   margin: 0 auto;
-  padding: clamp(1.8rem, 3.6vw, 3rem) 0 clamp(2rem, 4vw, 3.4rem);
+  padding: 0.95rem 0 3rem;
 }
 
 .calm-hero {
   display: grid;
-  gap: clamp(0.8rem, 2vw, 1.4rem);
+  gap: 0.35rem;
   align-items: center;
 }
 
@@ -218,7 +224,7 @@ h1 {
   max-width: none;
   margin-top: 0;
   margin-inline: auto;
-  font-size: clamp(1.45rem, 3vw, 2.4rem);
+  font-size: 2.25rem;
   line-height: 1.05;
   white-space: nowrap;
 }
@@ -267,20 +273,20 @@ h1 {
 }
 
 .hero-composition {
-  --orbit-right: clamp(180px, 35vw, 390px);
-  --orbit-left: clamp(-390px, -35vw, -180px);
-  --orbit-top: clamp(-220px, -18vw, -125px);
-  --orbit-bottom: clamp(125px, 18vw, 220px);
+  --orbit-right: clamp(180px, 32vw, 350px);
+  --orbit-left: clamp(-350px, -32vw, -180px);
+  --orbit-top: clamp(-190px, -15vw, -130px);
+  --orbit-bottom: clamp(130px, 16vw, 190px);
   position: relative;
   display: grid;
   place-items: center;
-  width: min(100%, 1060px);
-  min-height: clamp(390px, 42vw, 540px);
+  width: min(100%, 1000px);
+  min-height: clamp(390px, 40vw, 510px);
   margin: 0 auto;
   padding:
-    clamp(4.2rem, 6vw, 5.2rem)
-    clamp(3rem, 7vw, 6.4rem)
-    clamp(4rem, 6vw, 5.4rem);
+    clamp(3.7rem, 5vw, 4.8rem)
+    clamp(2.8rem, 6vw, 5.8rem)
+    clamp(3.8rem, 5vw, 4.9rem);
   isolation: isolate;
 }
 
@@ -299,7 +305,7 @@ h1 {
 
 .hero-video-wrap {
   z-index: 4;
-  width: min(100%, 620px);
+  width: min(100%, 580px);
 }
 
 .hero-video {
@@ -362,7 +368,7 @@ h1 {
   --card-rotate: -2.6deg;
   --orbit-delay: 0s;
   z-index: 3;
-  width: clamp(106px, 11.5vw, 158px);
+  width: clamp(112px, 11.5vw, 164px);
 }
 
 .reflection-card-two {
@@ -371,7 +377,7 @@ h1 {
   --static-y: -1rem;
   --card-rotate: 2.8deg;
   --orbit-delay: -17.2s;
-  width: clamp(100px, 11vw, 150px);
+  width: clamp(108px, 10.8vw, 156px);
 }
 
 .reflection-card-three {
@@ -380,7 +386,7 @@ h1 {
   --static-y: var(--orbit-bottom);
   --card-rotate: -2deg;
   --orbit-delay: -34.4s;
-  width: clamp(102px, 11.2vw, 152px);
+  width: clamp(110px, 11vw, 158px);
 }
 
 .reflection-card-four {
@@ -390,7 +396,7 @@ h1 {
   --card-rotate: -1.8deg;
   --orbit-delay: -51.6s;
   z-index: 5;
-  width: clamp(110px, 12.6vw, 170px);
+  width: clamp(116px, 12.2vw, 176px);
 }
 
 .reflection-card-five {
@@ -400,7 +406,7 @@ h1 {
   --card-rotate: 2.2deg;
   --orbit-delay: -68.8s;
   z-index: 5;
-  width: clamp(108px, 12vw, 164px);
+  width: clamp(114px, 11.8vw, 170px);
 }
 
 @keyframes cardOrbit {
@@ -437,14 +443,15 @@ h1 {
 }
 
 .section {
-  width: min(calc(100% - 2rem), var(--max));
+  width: min(calc(100% - (var(--page-gutter) * 2)), var(--max));
   margin: 0 auto;
-  padding: clamp(4rem, 9vw, 7rem) 0;
+  padding: 5.5rem 0;
   border-top: 1px solid var(--line);
 }
 
 .page-section {
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  margin-top: 1.25rem;
+  padding-top: 3.75rem;
   border-top: 0;
 }
 
@@ -461,12 +468,12 @@ h1 {
 
 .section h2 {
   max-width: 11ch;
-  font-size: clamp(2.5rem, 5vw, 5.3rem);
+  font-size: 4.7rem;
 }
 
 .section-copy {
   color: var(--muted-ink);
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  font-size: 1.1rem;
 }
 
 .section-copy p {
@@ -491,7 +498,7 @@ h1 {
 }
 
 .subsection-heading h3 {
-  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  font-size: 3.1rem;
 }
 
 .team-grid {
@@ -503,7 +510,7 @@ h1 {
 .team-card {
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(150px, 0.44fr) 1fr;
+  grid-template-columns: minmax(150px, 0.4fr) 1fr;
   gap: clamp(1rem, 3vw, 1.5rem);
   align-items: stretch;
   min-height: 320px;
@@ -531,7 +538,7 @@ h1 {
 
 .team-card h4 {
   margin-top: 0.35rem;
-  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  font-size: 2.25rem;
 }
 
 .team-card p:not(.pronouns):not(.languages) {
@@ -564,6 +571,9 @@ h1 {
   letter-spacing: 0.08em;
   list-style: none;
   text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
 }
 
 .qualification-details summary::-webkit-details-marker {
@@ -589,6 +599,10 @@ h1 {
   content: "-";
 }
 
+.qualification-details summary:hover {
+  color: var(--gold);
+}
+
 .qualification-details summary:focus-visible {
   outline: 3px solid var(--gold-soft);
   outline-offset: 4px;
@@ -611,18 +625,18 @@ h1 {
 }
 
 .service-list {
-  margin-top: clamp(2.4rem, 6vw, 4.5rem);
+  margin-top: 3.4rem;
   display: grid;
   border-top: 1px solid var(--line);
 }
 
 .service-item {
   display: grid;
-  grid-template-columns: 4.5rem 1fr;
+  grid-template-columns: 4rem 1fr;
   gap: 1rem;
   align-items: center;
-  min-height: 108px;
-  padding: 1.5rem 0;
+  min-height: 96px;
+  padding: 1.3rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -632,14 +646,14 @@ h1 {
 }
 
 .service-item h3 {
-  font-size: clamp(1.8rem, 4vw, 4rem);
-  line-height: 1.08;
+  font-size: 3.25rem;
+  line-height: 1.05;
 }
 
 .contact-section {
-  width: min(calc(100% - 2rem), var(--max));
+  width: min(calc(100% - (var(--page-gutter) * 2)), var(--max));
   margin: 0 auto 1rem;
-  padding: clamp(2rem, 6vw, 4.5rem);
+  padding: 4rem;
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
   gap: clamp(2rem, 6vw, 5rem);
@@ -652,7 +666,7 @@ h1 {
 .contact-copy h2 {
   margin-top: 0.7rem;
   color: var(--white);
-  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-size: 5.2rem;
 }
 
 .contact-copy p:not(.eyebrow) {
@@ -665,7 +679,7 @@ h1 {
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.7rem;
   align-items: center;
 }
 
@@ -718,7 +732,7 @@ h1 {
 }
 
 .page-contact {
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  margin-top: 5rem;
 }
 
 .legal-section {
@@ -726,15 +740,15 @@ h1 {
 }
 
 .legal-copy {
-  max-width: 760px;
+  max-width: 720px;
   color: var(--muted-ink);
-  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  font-size: 1.06rem;
 }
 
 .legal-copy h1 {
   max-width: 12ch;
   color: var(--ink);
-  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  font-size: 4.4rem;
   line-height: 0.98;
   white-space: normal;
 }
@@ -745,15 +759,15 @@ h1 {
 }
 
 .legal-group {
-  margin-top: clamp(1.6rem, 4vw, 2.5rem);
-  padding-top: clamp(1.1rem, 3vw, 1.5rem);
+  margin-top: 2.1rem;
+  padding-top: 1.35rem;
   border-top: 1px solid var(--line);
 }
 
 .legal-copy h2 {
   max-width: none;
   color: var(--ink);
-  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-size: 1.75rem;
   line-height: 1.12;
 }
 
@@ -762,9 +776,9 @@ h1 {
 }
 
 .site-footer {
-  width: min(calc(100% - 2rem), var(--max));
-  margin: clamp(2rem, 5vw, 4rem) auto 1rem;
-  padding: 1.15rem 0 0;
+  width: min(calc(100% - (var(--page-gutter) * 2)), var(--max));
+  margin: 3.25rem auto 1rem;
+  padding: 1.2rem 0 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -822,38 +836,45 @@ h1 {
 }
 
 @media (max-width: 920px) {
+  :root {
+    --page-gutter: 1rem;
+  }
+
   .site-header {
     gap: 0.7rem;
   }
 
   .nav-links {
     width: 100%;
+    max-width: 460px;
   }
 
   .hero {
     min-height: auto;
     align-items: start;
+    padding-top: 1rem;
   }
 
   h1 {
     max-width: none;
+    font-size: 2rem;
   }
 
   .hero-composition {
-    --orbit-right: clamp(205px, 33vw, 300px);
-    --orbit-left: clamp(-300px, -33vw, -205px);
-    --orbit-top: clamp(-170px, -20vw, -135px);
-    --orbit-bottom: clamp(135px, 20vw, 170px);
+    --orbit-right: clamp(190px, 31vw, 270px);
+    --orbit-left: clamp(-270px, -31vw, -190px);
+    --orbit-top: clamp(-155px, -18vw, -125px);
+    --orbit-bottom: clamp(125px, 18vw, 155px);
     width: min(100%, 760px);
-    min-height: clamp(360px, 56vw, 460px);
+    min-height: clamp(350px, 54vw, 440px);
     padding:
-      clamp(3.8rem, 8vw, 4.8rem)
+      clamp(3.5rem, 7vw, 4.4rem)
       clamp(2.2rem, 6vw, 4.2rem)
-      clamp(3.4rem, 7vw, 4.4rem);
+      clamp(3.2rem, 6vw, 4rem);
   }
 
   .hero-video-wrap {
-    width: min(100%, 520px);
+    width: min(100%, 500px);
   }
 
   .reflection-card {
@@ -861,23 +882,23 @@ h1 {
   }
 
   .reflection-card-one {
-    width: clamp(94px, 15vw, 124px);
+    width: clamp(100px, 14vw, 128px);
   }
 
   .reflection-card-two {
-    width: clamp(90px, 14vw, 116px);
+    width: clamp(94px, 13vw, 120px);
   }
 
   .reflection-card-three {
-    width: clamp(90px, 14vw, 118px);
+    width: clamp(96px, 13vw, 122px);
   }
 
   .reflection-card-four {
-    width: clamp(98px, 15vw, 130px);
+    width: clamp(102px, 14vw, 134px);
   }
 
   .reflection-card-five {
-    width: clamp(96px, 14vw, 126px);
+    width: clamp(100px, 13.5vw, 130px);
   }
 
   .section-grid,
@@ -887,10 +908,40 @@ h1 {
 
   .section h2 {
     max-width: 13ch;
+    font-size: 3.6rem;
+  }
+
+  .section-copy {
+    font-size: 1.05rem;
+  }
+
+  .subsection-heading h3 {
+    font-size: 2.45rem;
+  }
+
+  .team-card h4 {
+    font-size: 2.05rem;
+  }
+
+  .service-item h3 {
+    font-size: 2.55rem;
+  }
+
+  .contact-section {
+    padding: 3rem;
+  }
+
+  .contact-copy h2 {
+    font-size: 4rem;
   }
 
   .legal-copy h2 {
     max-width: none;
+    font-size: 1.55rem;
+  }
+
+  .legal-copy h1 {
+    font-size: 3.45rem;
   }
 
   .team-grid {
@@ -899,17 +950,23 @@ h1 {
 }
 
 @media (max-width: 620px) {
+  :root {
+    --page-gutter: 0.75rem;
+  }
+
   .site-header,
   .hero,
   .section,
   .contact-section,
   .site-footer {
-    width: min(calc(100% - 1rem), var(--max));
+    width: min(calc(100% - (var(--page-gutter) * 2)), var(--max));
   }
 
   .site-header {
     margin-top: 0.5rem;
-    padding: 0.7rem 0.65rem 0.65rem;
+    min-height: 96px;
+    padding: 0.62rem 0.65rem 0.58rem;
+    gap: 0.55rem;
   }
 
   .brand {
@@ -917,20 +974,23 @@ h1 {
   }
 
   .nav-links {
+    max-width: 360px;
+    gap: 1.12rem;
     padding-top: 0.68rem;
   }
 
   .nav-links a {
-    padding: 0.18rem 0.3rem;
+    padding: 0.18rem 0;
     font-size: 0.86rem;
   }
 
   .hero {
-    padding-top: 2.4rem;
+    padding-top: 1.05rem;
+    padding-bottom: 2.4rem;
   }
 
   h1 {
-    font-size: clamp(1.3rem, 5.8vw, 1.9rem);
+    font-size: 1.62rem;
   }
 
   .hero-actions {
@@ -943,12 +1003,12 @@ h1 {
   }
 
   .hero-composition {
-    --orbit-right: clamp(118px, 39vw, 148px);
-    --orbit-left: clamp(-148px, -39vw, -118px);
-    --orbit-top: clamp(-132px, -34vw, -96px);
-    --orbit-bottom: clamp(96px, 34vw, 132px);
-    min-height: clamp(310px, 94vw, 390px);
-    padding: 3.1rem 0 3.9rem;
+    --orbit-right: 128px;
+    --orbit-left: -128px;
+    --orbit-top: -104px;
+    --orbit-bottom: 112px;
+    min-height: 342px;
+    padding: 2.8rem 0 3.35rem;
   }
 
   .hero-composition::before {
@@ -956,7 +1016,7 @@ h1 {
   }
 
   .hero-video-wrap {
-    width: min(100%, 360px);
+    width: min(84vw, 318px);
   }
 
   .reflection-card {
@@ -964,69 +1024,168 @@ h1 {
   }
 
   .reflection-card-one {
-    width: min(26vw, 92px);
+    width: 80px;
   }
 
   .reflection-card-two {
-    width: min(24vw, 84px);
+    width: 74px;
+    z-index: 5;
   }
 
   .reflection-card-three {
-    width: min(24vw, 86px);
+    width: 76px;
   }
 
   .reflection-card-four {
-    width: min(26vw, 96px);
+    width: 86px;
   }
 
   .reflection-card-five {
-    width: min(25vw, 92px);
+    width: 82px;
+  }
+
+  .section {
+    padding: 4.25rem 0;
+  }
+
+  .page-section {
+    margin-top: 0.75rem;
+    padding-top: 3rem;
+  }
+
+  .section-grid {
+    gap: 1.7rem;
+  }
+
+  .section h2 {
+    max-width: 13ch;
+    font-size: 2.45rem;
+  }
+
+  .section-copy {
+    font-size: 1rem;
+  }
+
+  .professionals {
+    margin-top: 3rem;
   }
 
   .subsection-heading {
     display: grid;
     align-items: start;
+    margin-bottom: 1rem;
+  }
+
+  .subsection-heading h3 {
+    font-size: 2rem;
   }
 
   .team-card {
     grid-template-columns: 1fr;
     min-height: 0;
+    gap: 0.9rem;
+    padding: 0.85rem;
   }
 
   .team-card img {
     height: auto;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 5 / 3;
+    max-height: 220px;
     min-height: 0;
+    object-position: center 28%;
+  }
+
+  .team-card-content {
+    padding: 0.25rem 0.1rem 0.1rem;
+  }
+
+  .team-card h4 {
+    font-size: 1.8rem;
+  }
+
+  .team-card p:not(.pronouns):not(.languages) {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .languages {
+    margin-top: 0.9rem;
   }
 
   .service-item {
-    grid-template-columns: 2.6rem 1fr;
-    min-height: 86px;
+    grid-template-columns: 2.25rem 1fr;
+    min-height: 74px;
+    gap: 0.75rem;
+    padding: 1rem 0;
   }
 
   .service-item h3 {
-    font-size: clamp(1.55rem, 10vw, 2.8rem);
+    font-size: 1.65rem;
+    line-height: 1.1;
   }
 
   .contact-section {
-    padding: 1.4rem;
+    padding: 1.35rem;
+  }
+
+  .page-contact {
+    margin-top: 3.75rem;
+  }
+
+  .contact-copy h2 {
+    font-size: 2.75rem;
+  }
+
+  .contact-actions {
+    gap: 0.5rem;
+  }
+
+  .icon-action {
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+
+  .icon-action svg {
+    width: 1.45rem;
+    height: 1.45rem;
   }
 
   .legal-copy h1 {
-    max-width: 13ch;
-    font-size: clamp(2.2rem, 13vw, 3.25rem);
+    max-width: 12ch;
+    font-size: 2.45rem;
+    line-height: 1;
+  }
+
+  .legal-copy {
+    font-size: 1rem;
+  }
+
+  .legal-group {
+    margin-top: 1.6rem;
+    padding-top: 1.05rem;
+  }
+
+  .legal-copy h2 {
+    font-size: 1.35rem;
   }
 
   .site-footer {
     display: grid;
     justify-items: start;
     margin-bottom: 0.5rem;
+    margin-top: 2.5rem;
   }
 
   .footer-links {
     display: grid;
     justify-content: start;
-    gap: 0.25rem;
+    gap: 0.18rem;
+  }
+
+  .footer-links a {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .footer-links a + a::before {
